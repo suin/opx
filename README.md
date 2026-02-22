@@ -2,7 +2,7 @@
 
 ![opx](social-preview.svg)
 
-Thin wrapper around [`op run`](https://developer.1password.com/docs/cli/reference/management-commands/run/) that auto-finds the nearest `.env` file.
+Thin wrapper around [`op run`](https://developer.1password.com/docs/cli/reference/commands/run/) that auto-finds the nearest `.env` file.
 
 ## Why
 

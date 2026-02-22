@@ -9,8 +9,8 @@ Thin wrapper around [`op run`](https://developer.1password.com/docs/cli/referenc
 Running `op run --env-file=.env -- <command>` across multiple projects is tedious. `opx` reduces this to:
 
 ```sh
-opx bun run dev
-# equivalent to: op run --env-file=/path/to/.env -- bun run dev
+opx npm run dev
+# equivalent to: op run --env-file=/path/to/.env -- npm run dev
 ```
 
 ## Install
@@ -48,7 +48,7 @@ op run --env-file=<found .env path> -- <command> [args...]
 ### Examples
 
 ```sh
-opx bun run dev
+opx npm run dev
 opx node server.js
 opx docker compose up
 ```

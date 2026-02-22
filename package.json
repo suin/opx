@@ -1,7 +1,7 @@
 {
   "name": "@suin/opx",
   "version": "0.1.2",
-  "description": "Thin wrapper around `op run` that auto-finds the nearest .env file",
+  "description": "Simpler 1Password CLI. Auto-finds .env, injects secrets.",
   "keywords": [
     "1password",
     "op",

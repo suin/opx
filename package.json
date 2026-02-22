@@ -1,6 +1,6 @@
 {
   "name": "@suin/opx",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Thin wrapper around `op run` that auto-finds the nearest .env file",
   "keywords": [
     "1password",

@@ -1,8 +1,9 @@
 #!/usr/bin/env bun
+import pkg from "../package.json";
 import { findEnvFile } from "./find-env-file";
 import { run } from "./run";
 
-const VERSION = "0.1.0";
+const VERSION = pkg.version;
 
 const USAGE = `opx - Thin wrapper around \`op run\`
 

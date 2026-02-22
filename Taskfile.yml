@@ -1,0 +1,32 @@
+version: "3"
+
+tasks:
+  install:
+    cmds:
+      - bun install --frozen-lockfile
+
+  ci:
+    cmds:
+      - task: install
+      - task: check
+
+  test:
+    cmds:
+      - bun test
+
+  build:
+    cmds:
+      - task: install
+      - bun scripts/build.ts
+
+  check:
+    cmds:
+      - bunx biome check --write
+      - tsc --noEmit
+      - bunx sort-package-json -c
+      - bun test
+
+  publish:
+    cmds:
+      - task: install
+      - npm publish --provenance --access public

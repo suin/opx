@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: jetify-com/devbox-install-action@22b0f5500b14df4ea357ce673fbd4ced940ed6a1 # v0.13.0
+        with:
+          enable-cache: "true"
+      - run: devbox run -- task build
+        env:
+          VERSION: ${{ github.ref_name }}
+      - uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/opx-darwin-arm64
+            dist/opx-darwin-x64
+            dist/opx-linux-x64
+            dist/opx-linux-arm64
+
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: jetify-com/devbox-install-action@22b0f5500b14df4ea357ce673fbd4ced940ed6a1 # v0.13.0
+        with:
+          enable-cache: "true"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          registry-url: https://registry.npmjs.org
+      - run: devbox run -- task publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

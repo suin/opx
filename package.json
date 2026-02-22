@@ -1,0 +1,35 @@
+{
+  "name": "@suin/opx",
+  "version": "0.1.0",
+  "description": "Thin wrapper around `op run` that auto-finds the nearest .env file",
+  "keywords": [
+    "1password",
+    "op",
+    "env",
+    "secrets",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suin/opx.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "opx": "./src/cli.ts"
+  },
+  "files": [
+    "src/**/*.ts",
+    "!src/**/*.test.ts"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
+    "@suin/biome.json": "^0.1.0",
+    "@tsconfig/bun": "^1.0.10",
+    "@tsconfig/strictest": "^2.0.8",
+    "@types/bun": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "@tsconfig/strictest/tsconfig.json",
+    "@tsconfig/bun/tsconfig.json",
+    "@suin/biome.json/tsconfig"
+  ]
+}

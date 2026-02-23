@@ -3,8 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
-      - '[0-9]+.[0-9]+.[0-9]+'
+      - "[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   build:
@@ -44,3 +43,15 @@ jobs:
       - run: devbox run -- task publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  update-nixpkgs:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure nixpkgs package
+        uses: suin/nixpkgs/actions/ensure-package@main
+        with:
+          package: opx
+          version: ${{ github.ref_name }}
+          repo: suin/opx
+          token: ${{ secrets.NIXPKGS_PAT }}

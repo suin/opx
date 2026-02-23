@@ -15,6 +15,12 @@ opx npm run dev
 
 ## Install
 
+### Devbox
+
+```sh
+devbox add github:suin/nixpkgs#opx
+```
+
 ### Bun
 
 ```sh
